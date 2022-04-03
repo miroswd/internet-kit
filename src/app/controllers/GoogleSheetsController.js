@@ -2,10 +2,13 @@ require('dotenv').config();
 const { google } = require('googleapis');
 const { logger, convertToSheetsFormat } = require('../utils');
 
+const { CREDENTIALS } = process.env;
+
 class ConnectSheets {
   async config() {
     this.auth = new google.auth.GoogleAuth({
-      keyFile: 'credentials.json',
+      // keyFile: 'credentials.json',
+      credentials: JSON.parse(CREDENTIALS),
       scopes: 'https://www.googleapis.com/auth/spreadsheets',
     });
 
