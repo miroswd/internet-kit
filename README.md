@@ -1,27 +1,17 @@
-# Payload Register
-## Back-end para receber um payload e registrar no banco
+# Web Survival
+## Back-end - The internet survival kit
 
-### Docker <> MongoDB
+![demo](https://user-images.githubusercontent.com/54915150/163587557-a3eec3b4-2ca8-41c4-8468-04a8565f0d2a.gif)
 
-```shell
-docker run --name payload-register \
-  -p 27017:27017 \
-  -e MONGO_INITDB_ROOT_USERNAME=admin \
-  -e MONGO_INITDB_ROOT_PASSWORD=admin \
-  -d \
-  mongo
+<p>
+Demonstration:<br>
+   
+[![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/posts/altamir-santos_dev-nodejs-backend-activity-6918958334356160512-FWr8?utm_source=linkedin_share&utm_medium=member_desktop_web)](https://www.linkedin.com/posts/altamir-santos_dev-nodejs-backend-activity-6918958334356160512-FWr8?utm_source=linkedin_share&utm_medium=member_desktop_web)
 
- docker exec -it payload-register \
-  mongo --host localhost -u admin -p admin --authenticationDatabase admin \
-  --eval "db.getSiblingDB('payload-register').createUser({user: 'miro', pwd: 'password', roles: [{role: 'readWrite', db: 'payload-register'}]})"
-```
+</p>
 
-Caso queira usar o Redis:
-### Docker Redis
+[Front-end repo](https://github.com/miroswd/internet-kit-front)
 
-```shell
-docker run --name redis-payloads -p 6379:6379 -d -t redis:alpine
-```
 
 # Google Sheets Integration 
 
@@ -75,3 +65,4 @@ id: 2UF23YLAbOc_AFCF4VxVUBiaXojo0oZpQRI3q8xZOtIw
 ```
 
 - Pegamos esse id e salvamos no arquivo `.env`, no campo `SHEETS_ID`
+- As credenciais, devemos colocar no arquivo `.env, no campo `CREDENTIALS`, no formato de string
