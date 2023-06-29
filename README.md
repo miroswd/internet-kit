@@ -40,7 +40,7 @@ Demonstration:<br>
 <li>Seremos redirecionado para a tela de detalhes</li>
 <li>Vamos em "chaves"</li>
 <li>Agora na opção "adicionar chave", selecionamos "JSON" e criar</li>
-<li>O download das credenciai será feito</li>
+<li>O download das credenciais será feito</li>
 </ol>
 
 ## Configurando a planilha no sheets
