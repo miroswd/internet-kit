@@ -48,7 +48,7 @@ class ConnectSheets {
       })
       .then((res) => res.data)
       .catch((error) => logger.error(error));
-    logger.info(rows);
+    logger.info('SUCCESS');
     return rows.values;
   }
 
