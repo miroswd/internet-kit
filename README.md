@@ -66,3 +66,23 @@ id: 2UF23YLAbOc_AFCF4VxVUBiaXojo0oZpQRI3q8xZOtIw
 
 - Pegamos esse id e salvamos no arquivo `.env`, no campo `SHEETS_ID`
 - As credenciais, devemos colocar no arquivo `.env, no campo `CREDENTIALS`, no formato de string
+
+
+## Redis implementation
+> For this project I used Redis Online as Vercel does not support docker-compose
+
+In my tests if I was used a local Redis with docker-compose the UX would be better (going from 88 ms to 6 ms) 
+
+
+**Comparison**
+
+no cache:
+
+![No cache](./assets/no-cache.png)
+
+
+---
+
+with cache:
+
+![With cache](./assets/with-cache.png)
