@@ -1,24 +1,13 @@
-const { createClient } = require('redis');
-const { logger } = require('../app/utils');
+const { createClient } = require('@vercel/kv');
 
 const {
-  REDIS_HOST,
-  REDIS_PORT,
-  REDIS_PASSWORD,
+  KV_REST_API_URL,
+  KV_REST_API_TOKEN,
 } = process.env;
 
 const redisConnection = createClient({
-  password: REDIS_PASSWORD,
-  socket: {
-    host: REDIS_HOST,
-    port: REDIS_PORT,
-  },
-});
-
-redisConnection.connect().then((_) => {
-  logger.info('Redis connected');
-}).catch((err) => {
-  logger.error(err, 'Failed to connect redis');
+  url: KV_REST_API_URL,
+  token: KV_REST_API_TOKEN,
 });
 
 module.exports = { redisConnection };
