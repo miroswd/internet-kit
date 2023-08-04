@@ -1,24 +1,13 @@
-const { createClient } = require('redis');
-const { logger } = require('../app/utils');
+const { Redis } = require('@upstash/redis');
 
 const {
-  REDIS_HOST,
-  REDIS_PORT,
-  REDIS_PASSWORD,
+  UPSTASH_REDIS_REST_URL,
+  UPSTASH_REDIS_REST_TOKEN,
 } = process.env;
 
-const redisConnection = createClient({
-  password: REDIS_PASSWORD,
-  socket: {
-    host: REDIS_HOST,
-    port: REDIS_PORT,
-  },
-});
-
-redisConnection.connect().then((_) => {
-  logger.info('Redis connected');
-}).catch((err) => {
-  logger.error(err, 'Failed to connect redis');
+const redisConnection = new Redis({
+  url: UPSTASH_REDIS_REST_URL,
+  token: UPSTASH_REDIS_REST_TOKEN,
 });
 
 module.exports = { redisConnection };
