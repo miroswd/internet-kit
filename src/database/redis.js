@@ -1,13 +1,9 @@
-const { createClient } = require('@vercel/kv');
+const { Redis } = require('ioredis');
 
 const {
-  KV_REST_API_URL,
-  KV_REST_API_TOKEN,
+  REDIS_URL,
 } = process.env;
 
-const redisConnection = createClient({
-  url: KV_REST_API_URL,
-  token: KV_REST_API_TOKEN,
-});
+const redisConnection = new Redis(String(REDIS_URL));
 
 module.exports = { redisConnection };
