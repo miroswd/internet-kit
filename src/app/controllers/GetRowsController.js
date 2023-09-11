@@ -24,13 +24,13 @@ class GetRowsController {
       const findPageCache = await redisConnection.get(page);
 
       if (findPageCache && !update) {
-        return response.status(200).json(findPageCache);
+        return response.status(200).json(JSON.parse(findPageCache));
       }
 
       const rows = await new ConnectSheets().getRows(page);
       const sheetsRowsInJson = convertToJson(rows);
 
-      await redisConnection.set(page, sheetsRowsInJson);
+      await redisConnection.set(page, JSON.stringify(sheetsRowsInJson));
 
       return response.status(200).json(sheetsRowsInJson);
     } catch (error) {
